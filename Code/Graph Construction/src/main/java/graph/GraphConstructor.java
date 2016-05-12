@@ -74,6 +74,7 @@ public class GraphConstructor {
                 prev = newNode;
             }
             localGraphs.put(origNode.getName(), new HashMap<>(newGraph));
+            newGraph.clear();
             allNodes.putAll(new HashMap<>(map));
             //newGraph.clear();
         }
@@ -82,20 +83,23 @@ public class GraphConstructor {
         Node first = null;
         Node prev = null;
         Node end = null;
-        Node start = null;
+        int lastVertex = -1;
         for (Node origNode: graph.getGraph().keySet()) {
             if (first == null) {
                 first = allNodes.get(origNode.getWholeName() + ":" + 0);
             }
-            start = allNodes.get(origNode.getWholeName() + ":" + 0);
+            Node start = allNodes.get(origNode.getWholeName() + ":" + 0);
             if (prev != null) {
                 Map<Node, Set<Node>> local = localGraphs.get(origNode.getName());
-                end = allNodes.get(prev.getWholeName() + ":" + 3);
+                Map<Node, Set<Node>> local2 = localGraphs.get(prev.getName());
+                end = allNodes.get(prev.getWholeName() + ":" + lastVertex);
                 addEdge(start, end, local);
-                addEdge(end, start, local);
+                addEdge(end, start, local2);
+            } else {
+                lastVertex = localGraphs.get(origNode.getName()).size()-1;
             }
             prev = origNode;
-            end = allNodes.get(prev.getWholeName() + ":" + 3);
+            end = allNodes.get(prev.getWholeName() + ":" + lastVertex);
         }
         Map<Node, Set<Node>> local = localGraphs.get(first.getParent().getName());
         addEdge(first, end, local);
@@ -141,7 +145,5 @@ public class GraphConstructor {
         System.out.print(g1.toString());
         System.out.println(g1.getNumberOfVertexes());
     }
-
-
 
 }

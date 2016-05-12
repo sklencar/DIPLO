@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91be0c0f-f7b2-4114-ae9c-d6a109b498ca" name="Default" comment="" />
+    <list default="true" id="91be0c0f-f7b2-4114-ae9c-d6a109b498ca" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/main/graph/GraphConstructor.class" afterPath="$PROJECT_DIR$/out/production/main/graph/GraphConstructor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/graph/GraphConstructor.java" afterPath="$PROJECT_DIR$/src/main/java/graph/GraphConstructor.java" />
+    </list>
     <ignored path="Graph Construction.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,8 +31,8 @@
       <file leaf-file-name="GraphConstructor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/graph/GraphConstructor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1921">
-              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+            <state relative-caret-position="50">
+              <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
               <folding>
                 <element signature="e#525#542#0" expanded="true" />
                 <element signature="e#620#626#0" expanded="true" />
@@ -36,9 +41,9 @@
                 <element signature="e#983#997#0" expanded="true" />
                 <element signature="e#1072#1102#0" expanded="true" />
                 <element signature="e#1809#1815#0" expanded="true" />
-                <element signature="e#4148#4149#0" expanded="true" />
-                <element signature="e#4189#4190#0" expanded="true" />
-                <element signature="e#4545#4551#0" expanded="true" />
+                <element signature="e#4379#4380#0" expanded="true" />
+                <element signature="e#4420#4421#0" expanded="true" />
+                <element signature="e#4776#4782#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -59,27 +64,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CopyGraphConstructor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/graph/CopyGraphConstructor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding>
-                <marker date="1463066328914" expanded="false" signature="129:140" placeholder=" { " />
-                <marker date="1463066328914" expanded="false" signature="182:188" placeholder=" }" />
-                <marker date="1463066328914" expanded="false" signature="301:307" placeholder="&lt;~&gt;" />
-                <marker date="1463066328914" expanded="false" signature="457:474" placeholder="&lt;~&gt;" />
-                <marker date="1463066328914" expanded="false" signature="552:558" placeholder="&lt;~&gt;" />
-                <marker date="1463066328914" expanded="false" signature="780:797" placeholder="&lt;~&gt;" />
-                <marker date="1463066328914" expanded="false" signature="1215:1232" placeholder="&lt;~&gt;" />
-                <marker date="1463066328914" expanded="false" signature="1287:1304" placeholder="&lt;~&gt;" />
-                <marker date="1463066328914" expanded="false" signature="1977:1983" placeholder="&lt;~&gt;" />
-                <marker date="1463066328914" expanded="false" signature="2750:2767" placeholder="&lt;~&gt;" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/graph/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -91,6 +75,9 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -119,7 +106,7 @@
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -728,12 +715,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1463045726104</updated>
-      <workItem from="1463045734566" duration="14920000" />
+      <workItem from="1463045734566" duration="16816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14920000" />
+    <option name="totallyTimeSpent" value="16816000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -748,7 +735,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23202614" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23202614" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -773,7 +760,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="29" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -786,18 +773,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <marker date="1463066328914" expanded="false" signature="129:140" placeholder=" { " />
-            <marker date="1463066328914" expanded="false" signature="182:188" placeholder=" }" />
-            <marker date="1463066328914" expanded="false" signature="301:307" placeholder="&lt;~&gt;" />
-            <marker date="1463066328914" expanded="false" signature="457:474" placeholder="&lt;~&gt;" />
-            <marker date="1463066328914" expanded="false" signature="552:558" placeholder="&lt;~&gt;" />
-            <marker date="1463066328914" expanded="false" signature="780:797" placeholder="&lt;~&gt;" />
-            <marker date="1463066328914" expanded="false" signature="1215:1232" placeholder="&lt;~&gt;" />
-            <marker date="1463066328914" expanded="false" signature="1287:1304" placeholder="&lt;~&gt;" />
-            <marker date="1463066328914" expanded="false" signature="1977:1983" placeholder="&lt;~&gt;" />
-            <marker date="1463066328914" expanded="false" signature="2750:2767" placeholder="&lt;~&gt;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -824,8 +800,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/graph/GraphConstructor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        <state relative-caret-position="50">
+          <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
           <folding>
             <element signature="e#525#542#0" expanded="true" />
             <element signature="e#620#626#0" expanded="true" />
@@ -834,9 +810,9 @@
             <element signature="e#983#997#0" expanded="true" />
             <element signature="e#1072#1102#0" expanded="true" />
             <element signature="e#1809#1815#0" expanded="true" />
-            <element signature="e#4148#4149#0" expanded="true" />
-            <element signature="e#4189#4190#0" expanded="true" />
-            <element signature="e#4545#4551#0" expanded="true" />
+            <element signature="e#4379#4380#0" expanded="true" />
+            <element signature="e#4420#4421#0" expanded="true" />
+            <element signature="e#4776#4782#0" expanded="true" />
           </folding>
         </state>
       </provider>
