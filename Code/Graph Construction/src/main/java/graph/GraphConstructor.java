@@ -27,6 +27,7 @@ public class GraphConstructor {
         return new Graph(g);
     }
 
+    // TODO refactor
     public void substitute(Graph graph, Graph subs) {
         Map<Node, Set<Node>>  newGraph = new  HashMap<Node, Set<Node>>();
         TreeMap<String, Node> map = new TreeMap<String, Node>();
@@ -39,11 +40,9 @@ public class GraphConstructor {
 
             // create vertices for one orig. node
             for (Node newNode: subs.getGraph().keySet()) {
-                //Node node = new Node(origNode.getName() + DELIMITER + newNode.getName());
                 Node node = new Node(newNode.getName());
                 node.setParent(origNode);
 
-                //news.add(node);
                 map.put(node.getWholeName(), node);
             }
 
@@ -61,14 +60,12 @@ public class GraphConstructor {
                     String key = origNode.getWholeName() + ":" + (map.size() - 1);
                     Node tmp = map.get(key);
                     neighbours.remove(tmp);
-                    //set.add();
                 }
 
                 if (newNode.getName().equals((map.size()-1)+"")) {
                     String key = origNode.getWholeName() + ":0";
                     Node tmp = map.get(key);
                     neighbours.remove(tmp);
-                    //set.add();
                 }
                 newGraph.put(map.get(origNode.getWholeName() + ":" + newNode.getName()),neighbours);
                 prev = newNode;
@@ -76,7 +73,6 @@ public class GraphConstructor {
             localGraphs.put(origNode.getName(), new HashMap<>(newGraph));
             newGraph.clear();
             allNodes.putAll(new HashMap<>(map));
-            //newGraph.clear();
         }
 
         //makes hamiltonian circuit
@@ -84,35 +80,34 @@ public class GraphConstructor {
         Node prev = null;
         Node end = null;
         int lastVertex = -1;
+
         for (Node origNode: graph.getGraph().keySet()) {
             if (first == null) {
                 first = allNodes.get(origNode.getWholeName() + ":" + 0);
             }
             Node start = allNodes.get(origNode.getWholeName() + ":" + 0);
             if (prev != null) {
-                Map<Node, Set<Node>> local = localGraphs.get(origNode.getName());
-                Map<Node, Set<Node>> local2 = localGraphs.get(prev.getName());
                 end = allNodes.get(prev.getWholeName() + ":" + lastVertex);
-                addEdge(start, end, local);
-                addEdge(end, start, local2);
+                addEdge(start, end, localGraphs.get(origNode.getName()));
+                addEdge(end, start, localGraphs.get(prev.getName()));
             } else {
                 lastVertex = localGraphs.get(origNode.getName()).size()-1;
             }
             prev = origNode;
             end = allNodes.get(prev.getWholeName() + ":" + lastVertex);
         }
-        Map<Node, Set<Node>> local = localGraphs.get(first.getParent().getName());
-        addEdge(first, end, local);
 
-        Map<Node, Set<Node>> local2 = localGraphs.get(end.getParent().getName());
-        addEdge(end, first, local2);
+        addEdge(first, end, localGraphs.get(first.getParent().getName()));
+        addEdge(end, first, localGraphs.get(end.getParent().getName()));
 
+        // adding subgraphs
         newGraph.clear();
         for (String s: localGraphs.keySet()) {
             newGraph.putAll(localGraphs.get(s));
         }
         graph.setGraph(newGraph);
     }
+
 
     private void addEdge(Node curr, Node last, Map<Node, Set<Node>> local) {
         local.get(curr).add(last);
