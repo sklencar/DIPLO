@@ -8,7 +8,7 @@ public class Node {
     private static final String DELIMITER = ":";
 
     private String name;
-    private Node parent;
+    private Node predecesor;
 
     public Node(String name) {
         this.name = name;
@@ -29,12 +29,12 @@ public class Node {
         this.name = name;
     }
 
-    public Node getParent() {
-        return parent;
+    public Node getPredecesor() {
+        return predecesor;
     }
 
-    public void setParent(Node parent) {
-        this.parent = parent;
+    public void setPredecesor(Node predecesor) {
+        this.predecesor = predecesor;
     }
 
     public String getWholeName() {
@@ -43,6 +43,6 @@ public class Node {
 
     @Override
     public String toString() {
-        return ((parent != null) ? parent.toString() + DELIMITER : "") + getName();
+        return ((predecesor != null) ? predecesor.toString() + DELIMITER : "") + getName();
     }
 }

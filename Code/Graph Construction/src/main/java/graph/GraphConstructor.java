@@ -27,7 +27,6 @@ public class GraphConstructor {
         return new Graph(g);
     }
 
-    // TODO refactor
     public void substitute(Graph graph, Graph subs) {
         Map<Node, Set<Node>>  newGraph = new  HashMap<Node, Set<Node>>();
         TreeMap<String, Node> map = new TreeMap<String, Node>();
@@ -41,7 +40,7 @@ public class GraphConstructor {
             // create vertices for one orig. node
             for (Node newNode: subs.getGraph().keySet()) {
                 Node node = new Node(newNode.getName());
-                node.setParent(origNode);
+                node.setPredecesor(origNode);
 
                 map.put(node.getWholeName(), node);
             }
@@ -97,8 +96,8 @@ public class GraphConstructor {
             end = allNodes.get(prev.getWholeName() + ":" + lastVertex);
         }
 
-        addEdge(first, end, localGraphs.get(first.getParent().getName()));
-        addEdge(end, first, localGraphs.get(end.getParent().getName()));
+        addEdge(first, end, localGraphs.get(first.getPredecesor().getName()));
+        addEdge(end, first, localGraphs.get(end.getPredecesor().getName()));
 
         // adding subgraphs
         newGraph.clear();
@@ -132,9 +131,9 @@ public class GraphConstructor {
 
     public static void main(String[] args) {
         GraphConstructor constructor = new GraphConstructor();
-        Graph g1 = constructor.generateCompleteGraph(4);
+        Graph g1 = constructor.generateCompleteGraph(3);
         System.out.print(g1.toString());
-        Graph g2 = constructor.generateCompleteGraph(3,"");
+        Graph g2 = constructor.generateCompleteGraph(2,"");
         constructor.substitute(g1, g2);
 
         System.out.print(g1.toString());
