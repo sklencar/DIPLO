@@ -2,23 +2,21 @@ package graph;
 
 import exception.DuplicateEdgeException;
 
-import java.util.*;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Graph {
 
-    private Map<Node, Set<Node>> graph;
-
-
     public Graph() {
-        graph = new HashMap<Node, Set<Node>>();
+        graph = new HashNodeMap();
     }
 
-    public Graph(Map<Node, Set<Node>> graph) {
+
+    public Graph(HashNodeMap graph) {
         this.graph = graph;
     }
 
-    List<Node> nodes;
-    List<Edge> edges;
+    private HashNodeMap graph;
 
     public void addEdges(Iterable<Edge> allEdges) {
         for (Edge edge : allEdges) {
@@ -29,7 +27,7 @@ public class Graph {
 
     private void addEdge(Node node1, Node node2) {
         if (!graph.containsKey(node1))
-            graph.put(node1, (new HashSet<Node>()));
+            graph.put(node1, (new NodeSet()));
         Set<Node> set = graph.get(node1);
         if (set.contains(node2))
             try {
@@ -59,8 +57,42 @@ public class Graph {
         return graph.get(node);
     }
 
+    public Set<Node> getVerticesByParentName(String parentName) {
+        return graph.keySet().stream().filter(node -> node.getWholeName().startsWith(parentName)).collect(Collectors.toSet());
+    }
+
     public int getNumberOfVertexes() {
         return graph.size();
+    }
+
+    public int getValencyOfVertex(Node node) {
+        return graph.get(node).size();
+    }
+
+    public int getValencyOfVertexByName(String name) {
+        return graph.getByName(name).size();
+    }
+
+    public boolean hasEdge(String n1, String n2) {
+        for (Node node: graph.keySet()) {
+            if (node.getWholeName() == n1) {
+                return (graph.get(node).stream().filter(n -> n.getWholeName() == n2).count() == 1);
+            }
+        }
+
+        return false;
+    }
+
+    public boolean hasEdge(Node n1, Node n2) {
+        return (graph.get(n1).contains(n2));
+    }
+
+    public boolean hasInNeighbourhood(Node node, Node neighbour) {
+        return graph.get(node).contains(neighbour);
+    }
+
+    public boolean hasInNeighbourhood(String nodeName, String neighbourName) {
+        return graph.getByName(nodeName).getByName(neighbourName) != null;
     }
 
     @Override
@@ -76,11 +108,11 @@ public class Graph {
         return result;
     }
 
-    public Map<Node, Set<Node>> getGraph() {
+    public HashNodeMap getGraph() {
         return graph;
     }
 
-    public void setGraph(Map<Node, Set<Node>> graph) {
+    public void setGraph(HashNodeMap graph) {
         this.graph = graph;
     }
 }
