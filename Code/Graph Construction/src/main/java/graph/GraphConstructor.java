@@ -138,11 +138,31 @@ public class GraphConstructor {
         return set;
     }
 
-    public boolean hasSameStructure(Graph origGraph, Graph newGraph) {
-        for (Node origNode: origGraph.getGraph().keySet()) {
+    /*
+  * Verifies if graph replacement has the same number of outgoing edges as is valency of repleced node.
+  * */
+    public static boolean hasSameValency(Node origNode, int numberOforigNeighbours, Graph newGraph) {
+        Set<Node> newVertices = newGraph.getVerticesByParentName(origNode.getName());
+        int sumOfValencies = newVertices.stream().mapToInt(n -> newGraph.getValencyOfVertex(n)).sum();
 
+        System.out.println(numberOforigNeighbours + " : " + sumOfValencies);
+        return numberOforigNeighbours == sumOfValencies;
+
+        // or ONELINER
+        //return numberOforigNeighbours == newGraph.getVerticesByParentName(origNode.getName()).stream().mapToInt(n -> newGraph.getValencyOfVertex(n)).sum();
+    }
+
+    public static boolean hasSameStructure(Graph origGraph, Graph newGraph) {
+        for (Node origNode : origGraph.getGraph().keySet()) {
+            int numberOforigNeighbours = origGraph.getValencyOfVertex(origNode);
+            if (!hasSameValency(origNode, numberOforigNeighbours, newGraph)) return false;
         }
+
+
         return true;
+
+        // ONELINER
+        //origGraph.getGraph().keySet().stream().map(origNode -> (!hasSameValency(origNode, origGraph.getValencyOfVertex(origNode), newGraph))).anyMatch(b -> b || false);
     }
 
 
@@ -166,18 +186,6 @@ public class GraphConstructor {
         throw new NullNodeException("Parent of " + newNode.getWholeName() + "doest exist!");
     }
 
-
-
-    private boolean vertexConnectivityTest(Node node, List<Node> origNeighbours, Graph newGraph) {
-
-        //Set<Node> newVertices = newGraph.getVerticesByParentName(node.getName()).stream().map(n -> newGraph.)
-
-        for (Node neighbour: origNeighbours) {
-            //newGraph.
-        }
-
-        return false;
-    }
 
     public static void main(String[] args) {
         GraphConstructor constructor = new GraphConstructor();
